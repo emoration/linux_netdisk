@@ -147,14 +147,14 @@ typedef struct msg {
 // 向socket中写入(发送)信息，同时输出log
 ssize_t read_net_with_log(int socket, MSG *m, size_t n, const std::string &hint) {
     ssize_t res = read(socket, m, n);
-    output_debug("server <= " + m->toString() + " (" + std::to_string(res) + " bytes)" + " (" + hint + ")");
+    output_debug("client <= " + m->toString() + " (" + std::to_string(res) + " bytes)" + " (" + hint + ")");
     return res;
 }
 
 // 从socket中读取(发送)信息，同时输出log
 ssize_t write_net_with_log(int socket, MSG *m, size_t n, const std::string &hint) {
     ssize_t res = write(socket, m, n);
-    output_debug("server => " + m->toString() + " (" + std::to_string(res) + " bytes)" + " (" + hint + ")");
+    output_debug("client => " + m->toString() + " (" + std::to_string(res) + " bytes)" + " (" + hint + ")");
     return res;
 }
 
